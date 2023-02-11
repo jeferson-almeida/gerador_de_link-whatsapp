@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/0ea24f2ec2.js" crossorigin="anonymous"></script>
+    <title>Gerador de link - WhatsApp</title>
+    <style>
+        * {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+            font-size: 24px;
+        }
+
+        header, main, footer {
+            padding: 20px;
+        }
+
+        header {
+            background-color: #128C7E;
+            color: white;
+        }
+
+        main {
+            height: 400px;
+            background-color: #00A884;
+            color: white;
+        }
+
+        h1 {
+            font-size: 48px;
+        }
+
+        h2 {
+            font-size: 36px;
+        }
+
+        div {
+            margin-bottom: 20px;
+        }
+
+        input {
+            padding: 10px;
+            color: #128C7E;
+        }
+
+        input:focus {
+            outline: 1px solid white;
+            border: 2px solid #01E675;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #01E675;
+            color: white;
+            border: 0;
+            border-radius: 5px;
+        }
+
+        a {
+            color: #01E675;
+        }
+
+        a:active {
+            color: white;
+        }
+
+        footer {
+            background-color: #128C7E;
+            color: white;
+        }
+
+        footer > p {
+            margin-bottom: 10px;
+        }
+
+        .contato {
+            margin-right: 20px;
+            text-decoration: none;
+        }
+
+        .contato > img {
+            width: 50px;
+            height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Gerador de link</h1>
+        <h2>WhatsApp</h2>
+    </header>
+    <main>
+        <div>
+            <label for="numero">Digite o número de WhatsApp</label>
+        </div>
+        <div>
+            <input type="tel" name="numero" id="numero">
+        </div>
+        <div>
+            <button onclick="gerar_link()">Gerar link</button>
+        </div>
+        <div>
+            <a id="link" href=""></a>
+        </div>
+    </main>
+    <footer>
+        <p><strong>Contatos do desenvolvedor</strong></p>
+        <a class="contato" href="https://www.facebook.com/jefersonba" target="_blank" rel="noopener noreferrer">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Facebook_logo_%28square%29.png/240px-Facebook_logo_%28square%29.png" alt="Ícone do Facebook">
+        </a>
+        <a class="contato" href="https://www.instagram.com/jefersonbalmeida/" target="_blank" rel="noopener noreferrer">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/240px-Instagram_icon.png" alt="Ícone do Instagram">
+        </a>
+        <a class="contato" href="https://www.linkedin.com/in/jefersonbalmeida/" target="_blank" rel="noopener noreferrer">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/LinkedIn_logo_initials.png/240px-LinkedIn_logo_initials.png" alt="Ícone do LinkedIn">
+        </a>
+    </footer>
+
+    <script>
+        const gerar_link = () => {
+            let numero = document.getElementById("numero").value
+            if(numero != '') {
+                let link = "https://api.whatsapp.com/send?phone=" + numero
+                document.getElementById("link").href = link
+                document.getElementById('link').innerText = link
+            }
+        }
+    </script>
+</body>
+</html>
